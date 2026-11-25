@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // Tailwind CSS v4 se procesa con el loader oficial para Turbopack
+  // (el paquete @tailwindcss/turbopack ya está en devDependencies).
   turbopack: {
     rules: {
       "*.css": {
@@ -11,6 +10,11 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    // Calidades permitidas para <Image quality={...} />
+    qualities: [75, 90],
   },
 };
 
